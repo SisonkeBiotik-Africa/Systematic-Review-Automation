@@ -17,7 +17,7 @@ def get_results(endpoint_url, query):
 n = input("How many main keywords are there")
 t = []
 for i in range(int(n)):
-  ms = "Provide the Keyword" + str(i+1)
+  ms = "Provide the Keyword " + str(i+1)
   ss = input(ms)
   t.append(ss)
   
