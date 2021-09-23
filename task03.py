@@ -9,7 +9,7 @@ from pattern.text.en import singularize
 nlp = spacy.load("en_core_web_sm")
 
 #Open Clarivate Analytics Web of Science Plain Text
-f = open("savedrecs01.txt", "r", encoding="utf8")
+f = open("savedrecs.txt", "r", encoding="utf8")
 
 #Defining stop words
 nltk.download('stopwords')
