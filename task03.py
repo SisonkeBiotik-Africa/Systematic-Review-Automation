@@ -44,26 +44,30 @@ for item in occurrences:
         #Aligning common noun phrases to Wikidata
         wikidata_id = wbi_functions.search_entities(item[0])
         if (wikidata_id != []):
-            wikidata_item = wbi_core.ItemEngine(item_id=wikidata_id[0], search_only=True)
-            label = wikidata_item.get_aliases("en")
-            label.append(wikidata_item.get_label("en"))
-            label = [singularize(element.lower()) for element in label]
-            #Assigning common noun phrases to their parent classes in Wikidata
-            if item[0] in label:
+            for iteration in range(2):
                 try:
-                    classes = [x["mainsnak"]["datavalue"]["value"]["id"] for x in wikidata_item.get_json_representation()["claims"]["P279"]]
+                    wikidata_item = wbi_core.ItemEngine(item_id=wikidata_id[i], search_only=True)
                 except KeyError:
-                    print("P279 Statements Not Available")
-                print(classes)
-                try:
-                    classes += [x["mainsnak"]["datavalue"]["value"]["id"] for x in wikidata_item.get_json_representation()["claims"]["P31"]]
-                except KeyError:
-                    print("P31 Statements Not Available")
-                print(classes)
-                for c in classes:
-                    wikidata_class = wbi_core.ItemEngine(item_id=c, search_only=True)
-                    ontology.append((item[0], wikidata_class.get_label("en"), item[1]))
-                    print(ontology)
+                    print("Not a second returned Wikidata item")
+                label = wikidata_item.get_aliases("en")
+                label.append(wikidata_item.get_label("en"))
+                label = [singularize(element.lower()) for element in label]
+                #Assigning common noun phrases to their parent classes in Wikidata
+                if item[0] in label:
+                    try:
+                        classes = [x["mainsnak"]["datavalue"]["value"]["id"] for x in wikidata_item.get_json_representation()["claims"]["P279"]]
+                    except KeyError:
+                        print("P279 Statements Not Available")
+                    print(classes)
+                    try:
+                        classes += [x["mainsnak"]["datavalue"]["value"]["id"] for x in wikidata_item.get_json_representation()["claims"]["P31"]]
+                    except KeyError:
+                        print("P31 Statements Not Available")
+                    print(classes)
+                    for c in classes:
+                        wikidata_class = wbi_core.ItemEngine(item_id=c, search_only=True)
+                        ontology.append((item[0], wikidata_class.get_label("en"), item[1]))
+                        print(ontology)
 
 #Eliminating uncommon parent classes
 classes_list1 = [(ii[1], ii[2]) for ii in ontology]
