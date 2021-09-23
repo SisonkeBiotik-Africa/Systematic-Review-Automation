@@ -47,7 +47,7 @@ for item in occurrences:
             wikidata_item = wbi_core.ItemEngine(item_id=wikidata_id[0], search_only=True)
             label = wikidata_item.get_aliases("en")
             label.append(wikidata_item.get_label("en"))
-            label = [element.lower() for element in label]
+            label = [singularize(element.lower()) for element in label]
             #Assigning common noun phrases to their parent classes in Wikidata
             if item[0] in label:
                 try:
