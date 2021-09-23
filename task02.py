@@ -17,7 +17,6 @@ for line in f:
         condition_ref = True
     if (line.find("   ")!=0) and (line.find("CR")!=0):
         condition_ref = False
-    #Verifying if the work is cited by another identified publication
     if (condition_ref == True):
         if (line.find("DOI ")>=0): ref.append(line[line.find("DOI")+4:-1])
     #Adding the work to the list of verified publications if applicable
