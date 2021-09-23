@@ -7,10 +7,15 @@ Within the framework of Sisonkebiotik Community, it will be interesting to condu
 ## Source codes
 * **Task01**: This code augments the search query by adding the synonyms of the mainly used keywords as well as its aspects, subclasses and parts so that further relevant evidences can be identified. For this, the main keywords related to the assessed topic are linked to their corresponding Wikidata item using [Wikidata Hub Service](https://hub.toolforge.org). Subsequently, the [aspects](https://www.wikidata.org/wiki/Property:P1552), [subclasses](https://www.wikidata.org/wiki/Property:P279) and [parts](https://www.wikidata.org/wiki/Property:P361) of the keywords are extracted from Wikidata using a specific SPARQL query.
 * **Task02**: This code performs a citation analysis on the initally identified records retrieved from Web of Science as a plain text. It considers the papers that have been citing or cited by another identified publication as valid and makes a list of the works that have been neither citing nor cited by any other considered publication so that they can be verified by end users.
-* **Task03**: This code tries to map the features of the assessed topic that should be considered to represent the findings of scholarly publications in the context of systematic reviews. It analyzes the abstracts of scholarly publications and retrieves all identified noun phrases in it using [SpaCy](https://spacy.io/). Then, it cleans the extracted noun phrases by eliminating uncommon named entities using [Collections](https://docs.python.org/3/library/collections.html), singularizing them using [Pattern](https://github.com/clips/pattern) and by removing stop words using [NLTK](https://www.nltk.org/). Finally, we assign the significant named entities to their parent classes based on Wikidata statements using [Wikibase Integrator](https://github.com/LeMyst/WikibaseIntegrator). 
+* **Task03**: This code tries to map the features of the assessed topic that should be considered to represent the findings of scholarly publications in the context of systematic reviews. It analyzes the abstracts of scholarly publications and retrieves all identified noun phrases in it using [SpaCy](https://spacy.io/) and [en core web sm](https://libraries.io/pypi/en-core-web-sm). Then, it cleans the extracted noun phrases by eliminating uncommon named entities using [Collections](https://docs.python.org/3/library/collections.html), making them in the singular form using [Pattern](https://github.com/clips/pattern) and by removing stop words using [NLTK](https://www.nltk.org/). Finally, we assign the significant named entities to their parent classes based on Wikidata statements using [Wikibase Integrator](https://github.com/LeMyst/WikibaseIntegrator). 
 # Requirements
-* requests           2.26.0
-* SPARQLWrapper      1.8.5
+en-core-web-sm     3.1.0
+nltk               3.3
+Pattern            3.6
+requests           2.26.0
+spacy              3.1.3
+SPARQLWrapper      1.8.5
+wikibaseintegrator 0.11.0
 ## References
 * Turki, H., Hadj Taieb, M. A., Ben Aouicha, M., Fraumann, G., Hauschke, C., & Heller, L. (2021). Enhancing Knowledge Graph Extraction and Validation From Scholarly Publications Using Bibliographic Metadata. *Frontiers in research metrics and analytics*, 6, 694307.
 * Turki, H. (2018). Citation analysis is also useful to assess the eligibility of biomedical research works for inclusion in living systematic reviews. *Journal of clinical epidemiology*, 97, 124-125.
