@@ -40,7 +40,7 @@ for term in t:
     {?x rdfs:label ?label} UNION {?x skos:altLabel ?label}.
     FILTER(LANG(?label)="en")
     }
-    LIMIT 50"""
+    LIMIT 15"""
     results = get_results(endpoint_url, query)
     for result in results["results"]["bindings"]:
       augm.append(result["label"]["value"])
