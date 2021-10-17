@@ -39,7 +39,8 @@ for term in t:
     {?x wdt:P31* wd:""" + cit_wikidata_id +"""} UNION {?x wdt:P279* wd:""" + cit_wikidata_id + """} UNION {?x wdt:P361* wd:""" + cit_wikidata_id + """} UNION {wd:""" + cit_wikidata_id + """ wdt:P1552 ?x}.
     {?x rdfs:label ?label} UNION {?x skos:altLabel ?label}.
     FILTER(LANG(?label)="en")
-    }"""
+    }
+    LIMIT 50"""
     results = get_results(endpoint_url, query)
     for result in results["results"]["bindings"]:
       augm.append(result["label"]["value"])
