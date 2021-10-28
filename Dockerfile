@@ -29,7 +29,7 @@ USER ${USER}
 # update pip
 RUN python -m pip install --upgrade pip --no-warn-script-location 
 # install some useful python tools 
-RUN python -m pip install jupyterlab mlflow --no-warn-script-location 
+RUN python -m pip install jupyterlab --no-warn-script-location 
 # find and pip install local python packages being developed on 
 # find and pip install -e . setup.py files
 RUN for SETUP in $(find . -mindepth 1 -maxdepth 2 -name setup.py); do \

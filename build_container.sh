@@ -11,6 +11,6 @@ else
   echo  sisonkebiotik/${CONTAINER_IMAGE_NAME,,} >> ${PATH_IMAGE_NAME}
 fi
 
-docker build -t sisonkebiotik/${CONTAINER_IMAGE_NAME} \
+docker build -t sisonkebiotik/${CONTAINER_IMAGE_NAME,,} \
 --build-arg USER=${USER} --build-arg USERID=$(id -u) \
 .
