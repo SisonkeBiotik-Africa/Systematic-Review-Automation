@@ -1,7 +1,5 @@
 keywords:
-  - computer vision # add key words here...
-  - africa
-  - malaria
+  - "???" # add key words here... TODO 
 
 endpoint_url: https://query.wikidata.org/sparql
 

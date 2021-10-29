@@ -10,7 +10,7 @@ CONFIG_FILE_PATH = "./configs/config.yaml"
 
 
 def get_keywords(config: DictConfig, example = False) -> list: 
-  """Get main keywords 
+  """Get main keywords  
 
   Args:
       config (DictConfig): Configuration file for script.
@@ -65,7 +65,7 @@ def build_query(keywords: list, endpoint_url: str) -> str:
       LIMIT 15"""
       results = _get_results(endpoint_url, query)
       for result in results["results"]["bindings"]:
-        augm.append(result["label"]["value"])
+        augm.append(result["label"]["v Get config alue"])
     augm.append(term)
     linker = ") OR ("
     squery.append("("+linker.join(augm)+")")
