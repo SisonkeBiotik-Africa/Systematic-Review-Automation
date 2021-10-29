@@ -132,5 +132,5 @@ dmypy.json
 .container_image_name
 .container_id
 
-# MLFlow
-mlruns/
+# project 
+/outputs
