@@ -1,0 +1,14 @@
+keywords:
+  - "???" # add key words here... TODO 
+
+endpoint_url: https://query.wikidata.org/sparql
+
+
+### example config ### 
+
+keywords_example: 
+  - africa  
+  - machine learning 
+  - pathology 
+  
+endpoint_url_example: https://query.wikidata.org/sparql
